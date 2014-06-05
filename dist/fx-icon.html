@@ -1,0 +1,22 @@
+/**
+ * 支持内置 icon 库以及 http://fontawesome.io/
+ */
+<foxui-element name="fx-icon" attributes="icon">
+    <script>
+    fox('fx-icon', {
+        lifecycle: {
+            created: function() {
+                // e.g: icon-back / fa-back
+                var iconComposites = this.icon.split('-');
+                var iconFamily = '';
+
+                if (iconComposites.length > 1) {
+                    iconFamily = iconComposites[0]
+                }
+
+                this.className = iconFamily + ' ' + this.icon;
+            }
+        }
+    });
+    </script>
+</foxui>

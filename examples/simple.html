@@ -6,10 +6,11 @@
         <link rel="stylesheet" href="../fox-core/dist/foxui.css">
         <link rel="stylesheet" href="../dist/fox-icons.css">
         <script src="../fox-core/dist/foxui.js"></script>
-        <script src="../dist/fox-icons.js"></script>
+        <link rel="import" href="../dist/fx-icon.html"/>
         <style>
             body{
                 padding: 10px;
+                position: static;
             }
 
             ul,li{
@@ -50,7 +51,8 @@
             icons.forEach(function(icon){
                 var iconWrap = document.createElement('li');
 
-                var iconEl = document.createElement('fx-' + icon);
+                var iconEl = document.createElement('fx-icon');
+                iconEl.icon = icon;
                 iconWrap.appendChild(iconEl);
 
                 var iconLabel = document.createElement('div');

@@ -74,6 +74,12 @@ module.exports = function(grunt) {
         expand: true,
         src: 'fonts/*',
         dest: '<%= meta.distPath %>'
+      },
+      tags: {
+        expand: true,
+        cwd: 'src/',
+        src: '*.html',
+        dest: '<%= meta.distPath %>'
       }
     },
 
