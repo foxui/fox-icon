@@ -1,5 +1,5 @@
 {
-  "name": "fox-icons",
+  "name": "fox-icon",
   "description": "Icon components of foxui.",
   "version": "0.1.0",
   "keywords": [
@@ -11,14 +11,14 @@
     "prototype",
     "components"
   ],
-  "homepage": "https://github.com/foxui/fox-icons",
+  "homepage": "https://github.com/foxui/fox-icon",
   "author": "fex-team",
   "repository": {
     "type": "git",
-    "url": "https://github.com/foxui/fox-icons.git"
+    "url": "https://github.com/foxui/fox-icon.git"
   },
   "bugs": {
-    "url": "https://github.com/foxui/fox-icons/issues"
+    "url": "https://github.com/foxui/fox-icon/issues"
   },
   "license": "BSD",
   "scripts": {

@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             ' * =====================================================\n' +
             ' * Foxui v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
             ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under <%= pkg.license %> (https://github.com/foxui/fox-icons/blob/master/LICENSE)\n' +
+            ' * Licensed under <%= pkg.license %> (https://github.com/foxui/fox-icon/blob/master/LICENSE)\n' +
             ' *\n' +
             ' * v<%= pkg.version %> designed by @fex-team.\n' +
             ' * =====================================================\n' +
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
           banner: '<%= banner %>'
         },
         src: [
-          'src/fox-icons.js',
+          'src/*.js',
         ],
         dest: '<%= meta.distPath %><%= pkg.name %>.js'
       }
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= meta.distPath %><%= pkg.name %>.css': 'sass/fox-icons.scss'
+          '<%= meta.distPath %><%= pkg.name %>.css': 'sass/fox-icon.scss'
         }
       }
     },
@@ -128,7 +128,7 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('dist-css', ['sass', 'csscomb', 'cssmin']);
   grunt.registerTask('dist-js', ['concat', 'uglify']);
-  grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'copy']);
+  grunt.registerTask('dist', ['clean', 'dist-css', /*'dist-js',*/ 'copy']);
   grunt.registerTask('build', ['dist']);
   grunt.registerTask('default', ['dist']);
   grunt.registerTask('test', ['dist', 'qunit']);
