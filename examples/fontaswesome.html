@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="../fox-core/dist/foxui.css">
         <link rel="stylesheet" href="font-awesome-4.1.0/css/font-awesome.min.css">
         <script src="../fox-core/dist/foxui.js"></script>
-        <link rel="import" href="../dist/fx-icon.html"/>
+        <link rel="import" href="../dist/fox-icon.html"/>
         <style>
             body{
                 padding: 10px;
@@ -31,11 +31,11 @@
                 margin: 1px;
             }
 
-            li fx-icon{
+            li fox-icon{
                 font-size: 30px;
             }
 
-            li:hover fx-icon{
+            li:hover fox-icon{
                 font-size: 40px;
                 color: #1284ff;
             }
@@ -56,12 +56,12 @@
             icons.forEach(function(icon){
                 var iconWrap = document.createElement('li');
 
-                var iconEl = document.createElement('fx-icon');
+                var iconEl = document.createElement('fox-icon');
                 iconEl.icon = icon;
                 iconWrap.appendChild(iconEl);
 
                 var iconLabel = document.createElement('div');
-                iconLabel.textContent = 'fx-' + icon;
+                iconLabel.textContent = 'fox-' + icon;
                 iconWrap.appendChild(iconLabel);
 
                 document.querySelector('ul').appendChild(iconWrap);
