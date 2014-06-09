@@ -3,20 +3,36 @@
  */
 <fox-element name="fox-icon" attributes="icon">
     <script>
-    fox('fox-icon', {
-        lifecycle: {
-            created: function() {
-                // e.g: icon-back / fa-back
-                var iconComposites = this.icon.split('-');
-                var iconFamily = '';
 
-                if (iconComposites.length > 1) {
-                    iconFamily = iconComposites[0]
-                }
+    (function(env){
+        var fox = env.fox;
 
-                this.className = iconFamily + ' ' + this.icon;
+        function setIconClass() {
+
+            if (!this.icon) {
+                return;
             }
+
+            var iconComposites = this.icon.split('-');
+            var iconFamily = '';
+
+            if (iconComposites.length > 1) {
+                iconFamily = iconComposites[0]
+            }
+
+            this.classList.add(iconFamily);
+            this.classList.add(this.icon);
         }
-    });
+
+
+        fox('fox-icon', {
+            lifecycle: {
+                inserted: function() {
+                    // e.g: icon-back / fa-back
+                    setIconClass.call(this);
+                }
+            }
+        });
+    })(this);
     </script>
 </fox-element>
