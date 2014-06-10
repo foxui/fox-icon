@@ -110,9 +110,10 @@ module.exports = function(grunt) {
     watch: {
       scripts: {
         files: [
-          '<%= meta.srcPath %>/**/*.scss'
+          'sass/*.scss',
+          'src/*.html'
         ],
-        tasks: ['sass']
+        tasks: ['dist']
       }
     },
 

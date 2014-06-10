@@ -14,22 +14,41 @@
             }
 
             var iconComposites = this.icon.split('-');
-            var iconFamily = '';
 
             if (iconComposites.length > 1) {
-                iconFamily = iconComposites[0]
+                this.iconFamily = iconComposites[0]
             }
 
-            this.classList.add(iconFamily);
+            this.classList.add(this.iconFamily);
             this.classList.add(this.icon);
         }
 
 
         fox('fox-icon', {
             lifecycle: {
+
                 inserted: function() {
                     // e.g: icon-back / fa-back
                     setIconClass.call(this);
+                },
+
+                iconChanged: function(oldVal, newVal) {
+                    // reset old
+                    this.iconFamily && this.classList.remove(this.iconFamily);
+                    oldVal && this.classList.remove(oldVal);
+
+                    setIconClass.call(this);
+                }
+            },
+
+            methods: {
+                getClassList: function() {
+                    return this.classList;
+                },
+
+                addClassList: function(className) {
+                    this.classList.add(className);
+                    return this.classList;
                 }
             }
         });
