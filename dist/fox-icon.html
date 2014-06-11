@@ -27,6 +27,10 @@
         fox('fox-icon', {
             lifecycle: {
 
+                created: function() {
+                    
+                },
+
                 inserted: function() {
                     // e.g: icon-back / fa-back
                     setIconClass.call(this);
@@ -38,17 +42,6 @@
                     oldVal && this.classList.remove(oldVal);
 
                     setIconClass.call(this);
-                }
-            },
-
-            methods: {
-                getClassList: function() {
-                    return this.classList;
-                },
-
-                addClassList: function(className) {
-                    this.classList.add(className);
-                    return this.classList;
                 }
             }
         });
