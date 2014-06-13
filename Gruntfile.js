@@ -33,18 +33,6 @@ module.exports = function(grunt) {
       dist: ['<%= meta.distPath %>']
     },
 
-    concat: {
-      foxui: {
-        options: {
-          banner: '<%= banner %>'
-        },
-        src: [
-          'src/*.js',
-        ],
-        dest: '<%= meta.distPath %><%= pkg.name %>.js'
-      }
-    },
-
     sass: {
       options: {
         banner: '<%= banner %>',
@@ -53,18 +41,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= meta.distPath %><%= pkg.name %>.css': 'sass/fox-icon.scss'
-        }
-      }
-    },
-
-    csscomb: {
-      options: {
-        config: 'sass/.csscomb.json'
-      },
-      dist: {
-        files: {
-          '<%= meta.distPath %><%= pkg.name %>.css': '<%= meta.distPath %>/<%= pkg.name %>.css'
+          '<%= meta.distPath %>css/<%= pkg.name %>.css': 'sass/fox-icon.scss'
         }
       }
     },
@@ -72,7 +49,7 @@ module.exports = function(grunt) {
     copy: {
       fonts: {
         expand: true,
-        src: 'fonts/*',
+        src: 'font/*',
         dest: '<%= meta.distPath %>'
       },
       tags: {
@@ -94,19 +71,6 @@ module.exports = function(grunt) {
       }
     },
 
-    uglify: {
-      options: {
-        banner: '<%= banner %>',
-        compress: true,
-        mangle: true,
-        preserveComments: false
-      },
-      foxui: {
-        src: '<%= concat.foxui.dest %>',
-        dest: '<%= meta.distPath %><%= pkg.name %>.min.js'
-      }
-    },
-
     watch: {
       scripts: {
         files: [
@@ -115,10 +79,6 @@ module.exports = function(grunt) {
         ],
         tasks: ['dist']
       }
-    },
-
-    qunit: {
-      files: ['test/test.html']
     }
   });
 
@@ -127,9 +87,8 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   // Default task(s).
-  grunt.registerTask('dist-css', ['sass', 'csscomb', 'cssmin']);
-  grunt.registerTask('dist-js', ['concat', 'uglify']);
-  grunt.registerTask('dist', ['clean', 'dist-css', /*'dist-js',*/ 'copy']);
+  grunt.registerTask('dist-css', ['sass', 'cssmin']);
+  grunt.registerTask('dist', ['clean', 'dist-css', 'copy']);
   grunt.registerTask('build', ['dist']);
   grunt.registerTask('default', ['dist']);
   grunt.registerTask('test', ['dist', 'qunit']);
