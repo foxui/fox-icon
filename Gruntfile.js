@@ -16,15 +16,14 @@ module.exports = function(grunt) {
 
     // Metadata.
     meta: {
-      distPath: 'dist/',
-      srcPath: 'src/'
+      distPath:       'dist/'
     },
 
     banner: '/*!\n' +
             ' * =====================================================\n' +
             ' * Foxui v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
             ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under <%= pkg.license %> (https://github.com/foxui/<%= pkg.name %>/blob/master/LICENSE)\n' +
+            ' * Licensed under <%= pkg.license %> (https://github.com/foxui/fox-icon/blob/master/LICENSE)\n' +
             ' *\n' +
             ' * v<%= pkg.version %> designed by @fex-team.\n' +
             ' * =====================================================\n' +
@@ -40,28 +39,20 @@ module.exports = function(grunt) {
         style: 'expanded',
         unixNewlines: true
       },
-      dev: {
+      dist: {
         files: {
-          '<%= meta.srcPath %>css/<%= pkg.name %>.css': 'sass/<%= pkg.name %>.scss'
+          '<%= meta.distPath %>css/<%= pkg.name %>.css': 'sass/fox-icon.scss'
         }
       }
     },
 
     copy: {
-      font: {
+      fonts: {
         expand: true,
         src: 'font/*',
         dest: '<%= meta.distPath %>'
       },
-
-      css: {
-        expand: true,
-        cwd: 'src/css',
-        src: '**/*',
-        dest: '<%= meta.distPath %>css/'
-      },
-
-      src: {
+      tags: {
         expand: true,
         cwd: 'src/',
         src: '*.html',
@@ -75,16 +66,16 @@ module.exports = function(grunt) {
         keepSpecialComments: '*' // set to '*' because we already add the banner in sass
       },
       foxui: {
-        src: '<%= meta.distPath %>css/<%= pkg.name %>.css',
-        dest: '<%= meta.distPath %>css/<%= pkg.name %>.min.css'
+        src: '<%= meta.distPath %><%= pkg.name %>.css',
+        dest: '<%= meta.distPath %><%= pkg.name %>.min.css'
       }
     },
 
     watch: {
       scripts: {
         files: [
-          'sass/*',
-          'src/**/*'
+          'sass/*.scss',
+          'src/*.html'
         ],
         tasks: ['dist']
       }
@@ -96,9 +87,10 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   // Default task(s).
-  grunt.registerTask('dist-css', ['sass', 'copy:css', 'cssmin']);
-  grunt.registerTask('dist', ['clean', 'dist-css', 'copy:src', 'copy:font']);
+  grunt.registerTask('dist-css', ['sass', 'cssmin']);
+  grunt.registerTask('dist', ['clean', 'dist-css', 'copy']);
   grunt.registerTask('build', ['dist']);
   grunt.registerTask('default', ['dist']);
+  grunt.registerTask('test', ['dist', 'qunit']);
 
 };
