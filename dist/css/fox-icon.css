@@ -11,8 +11,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'fox-icon';
-  src: url("../font/fox-icon.eot?14146596");
-  src: url("../font/fox-icon.eot?14146596#iefix") format("embedded-opentype"), url("../font/fox-icon.woff?14146596") format("woff"), url("../font/fox-icon.ttf?14146596") format("truetype"), url("../font/fox-icon.svg?14146596#fox-icon") format("svg");
+  src: url("../font/fox-icon.eot?96646192");
+  src: url("../font/fox-icon.eot?96646192#iefix") format("embedded-opentype"), url("../font/fox-icon.woff?96646192") format("woff"), url("../font/fox-icon.ttf?96646192") format("truetype"), url("../font/fox-icon.svg?96646192#fox-icon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -22,7 +22,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fox-icon';
-    src: url('../font/fox-icon.svg?14146596#fox-icon') format('svg');
+    src: url('../font/fox-icon.svg?96646192#fox-icon') format('svg');
   }
 }
 */
@@ -106,12 +106,12 @@
 }
 
 /* '' */
-.icon-down:before {
+.icon-gear:before {
   content: '\e80b';
 }
 
 /* '' */
-.icon-gear:before {
+.icon-down:before {
   content: '\e80c';
 }
 
@@ -151,102 +151,102 @@
 }
 
 /* '' */
-.icon-person:before {
+.icon-sound3:before {
   content: '\e814';
 }
 
 /* '' */
-.icon-pause:before {
+.icon-up:before {
   content: '\e815';
 }
 
 /* '' */
-.icon-more:before {
+.icon-sound4:before {
   content: '\e816';
 }
 
 /* '' */
-.icon-more-vertical:before {
+.icon-bars:before {
   content: '\e817';
 }
 
 /* '' */
-.icon-left-nav:before {
+.icon-caret:before {
   content: '\e818';
 }
 
 /* '' */
-.icon-info:before {
+.icon-and-down:before {
   content: '\e819';
 }
 
 /* '' */
-.icon-home:before {
+.icon-close:before {
   content: '\e81a';
 }
 
 /* '' */
-.icon-forward:before {
+.icon-code:before {
   content: '\e81b';
 }
 
 /* '' */
-.icon-download:before {
+.icon-compose:before {
   content: '\e81c';
 }
 
 /* '' */
-.icon-edit:before {
+.icon-down-nav:before {
   content: '\e81d';
 }
 
 /* '' */
-.icon-down-nav:before {
+.icon-download:before {
   content: '\e81e';
 }
 
 /* '' */
-.icon-compose:before {
+.icon-edit:before {
   content: '\e81f';
 }
 
 /* '' */
-.icon-code:before {
+.icon-forward:before {
   content: '\e820';
 }
 
 /* '' */
-.icon-close:before {
+.icon-home:before {
   content: '\e821';
 }
 
 /* '' */
-.icon-and-down:before {
+.icon-info:before {
   content: '\e822';
 }
 
 /* '' */
-.icon-caret:before {
+.icon-left-nav:before {
   content: '\e823';
 }
 
 /* '' */
-.icon-bars:before {
+.icon-more-vertical:before {
   content: '\e824';
 }
 
 /* '' */
-.icon-sound4:before {
+.icon-more:before {
   content: '\e825';
 }
 
 /* '' */
-.icon-up:before {
+.icon-pause:before {
   content: '\e826';
 }
 
 /* '' */
-.icon-sound3:before {
+.icon-person:before {
   content: '\e827';
 }
 
@@ -311,6 +311,11 @@
 }
 
 /* '' */
+.icon-location:before {
+  content: '\e834';
+}
+
+/* '' */
 /*
    Animation example, for spinners
 */
